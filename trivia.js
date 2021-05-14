@@ -13,15 +13,22 @@
 
             }
           };
-        axios.get(api_url, config)
-        .then(function (response) {
-         // console.log(response.data.results);
-    
-        })
-        .catch(function (error) {
-        console.error(error);
+        return new Promise((resolve, reject) => {
+          axios.get(api_url, config)
+            .then((response) => {
+              this.triviaData = response.data.results;
+              // this.triviaData.forEach(question => console.log(question));
+              this.questions = this.triviaData.forEach(question => console.log(question.question));
+              this.correct_answers = this.triviaData.forEach(question => console.log(question.correct_answer));
+              this.incorrect_answers = this.triviaData.forEach(question => console.log(question.incorrect_answers));
+              resolve();
+            })
+            .catch(function (error) {
+              console.error(error);
+              reject(error);
+            });
         });
-
+          
     }
 }
 
@@ -46,10 +53,21 @@
       }
   }
 
-//   $("#question_display").html(question_set_1.)
+
 
   //easiest way to randomize is have a shuffle routine
 //get user names
 //ask what category and difficulty, pass params to Game
 var triviaGame = new Game(['sally', 'bobby']);
-triviaGame.start();
+triviaGame.start()
+  .then(() => {
+    // triviaGame.question;
+    // triviaGame.correct_answer;
+    // triviaGame.incorrect_answers
+    $("#question_display").html(triviaGame.question);//just to test
+  })
+  .catch(() => {});
+
+// numbers.map( (number)=>{
+//   return number * 2
+// } )
