@@ -8,9 +8,192 @@
 </head>
 <body>
     <h1>trivia game!</h1>
-    <div id="questionDiv">
-        Trivia Question: <span id="question_display"></span>
-    </div>
+    <div id="currentPlayer">Player One, You're Up</div><br/>
+    <form id="triviaGameQuestions">
+        <div id="question0">
+            <span id="question0question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer('question0', 'question0answerA_display')">
+            <label for="A">A:</label>
+            <span id="question0answerA_display" ></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer('question0', 'question0answerB_display')">
+            <label for="B">B:</label>
+            <span id="question0answerB_display" ></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer('question0','question0answerC_display')">
+            <label for="C">C:</label>
+            <span id="question0answerC_display" ></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer('question0','question0answerD_display')">
+            <label for="D">D:</label>
+            <span id="question0answerD_display" ></span> <br/>
+        </div><br/>
+        <div id="question1">
+            <span id="question1question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices1" value="">
+            <label for="A">A:</label>
+            <span id="question1answerA_display"></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices1" value="">
+            <label for="B">B:</label>
+            <span id="question1answerB_display"></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices1" value="">
+            <label for="C">C:</label>
+            <span id="question1answerC_display"></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices1" value="">
+            <label for="D">D:</label>
+            <span id="question1answerD_display"></span> <br/>
+        </div><br/>
+        <div id="question2">
+            <span id="question2question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices2" value="">
+            <label for="A">A:</label>
+            <span id="question2answerA_display"></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices2" value="">
+            <label for="B">B:</label>
+            <span id="question2answerB_display"></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices2" value="">
+            <label for="C">C:</label>
+            <span id="question2answerC_display"></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices2" value="">
+            <label for="D">D:</label>
+            <span id="question2answerD_display"></span> <br/>
+        </div><br/>
+        
+        <div id="question3">
+            <span id="question3question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices3" value="">
+            <label for="A">A:</label>
+            <span id="question3answerA_display"></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices3" value="">
+            <label for="B">B:</label>
+            <span id="question3answerB_display"></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices3" value="">
+            <label for="C">C:</label>
+            <span id="question3answerC_display"></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices3" value="">
+            <label for="D">D:</label>
+            <span id="question3answerD_display"></span> <br/>
+        </div><br/>
+        <div id="question4">
+            <span id="question4question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices4" value="">
+            <label for="A">A:</label>
+            <span id="question4answerA_display"></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices4" value="">
+            <label for="B">B:</label>
+            <span id="question4answerB_display"></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices4" value="">
+            <label for="C">C:</label>
+            <span id="question4answerC_display"></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices4" value="">
+            <label for="D">D:</label>
+            <span id="question4answerD_display"></span> <br/>
+        </div><br/>
+        <div id="question5">
+            <span id="question5question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices5" value="">
+            <label for="A">A:</label>
+            <span id="question5answerA_display"></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices5" value="">
+            <label for="B">B:</label>
+            <span id="question5answerB_display"></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices5" value="">
+            <label for="C">C:</label>
+            <span id="question5answerC_display"></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices5" value="">
+            <label for="D">D:</label>
+            <span id="question5answerD_display"></span> <br/>
+        </div><br/>
+        <div id="question6">
+            <span id="question6question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices6" value="">
+            <label for="A">A:</label>
+            <span id="question6answerA_display"></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices6" value="">
+            <label for="B">B:</label>
+            <span id="question6answerB_display"></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices6" value="">
+            <label for="C">C:</label>
+            <span id="question6answerC_display"></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices6" value="">
+            <label for="D">D:</label>
+            <span id="question6answerD_display"></span> <br/>
+        </div><br/>
+        <div id="question7">
+            <span id="question7question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices7" value="">
+            <label for="A">A:</label>
+            <span id="question7answerA_display"></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices7" value="">
+            <label for="B">B:</label>
+            <span id="question7answerB_display"></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices7" value="">
+            <label for="C">C:</label>
+            <span id="question7answerC_display"></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices7" value="">
+            <label for="D">D:</label>
+            <span id="question7answerD_display"></span> <br/>
+        </div><br/>
+        <div id="question8">
+            <span id="question8question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices8" value="">
+            <label for="A">A:</label>
+            <span id="question8answerA_display"></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices8" value="">
+            <label for="B">B:</label>
+            <span id="question8answerB_display"></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices8" value="">
+            <label for="C">C:</label>
+            <span id="question8answerC_display"></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices8" value="">
+            <label for="D">D:</label>
+            <span id="question8answerD_display"></span> <br/>
+        </div><br/>
+        <div id="question9">
+            <span id="question9question_display"></span> <br/>
+            <input type="radio" id="A" name="triviaAnswerChoices9" value="">
+            <label for="A">A:</label>
+            <span id="question9answerA_display"></span> <br/>
+
+            <input type="radio" id="B" name="triviaAnswerChoices9" value="">
+            <label for="B">B:</label>
+            <span id="question9answerB_display"></span> <br/>
+
+            <input type="radio" id="C" name="triviaAnswerChoices9" value="">
+            <label for="C">C:</label>
+            <span id="question9answerC_display"></span> <br/>
+
+            <input type="radio" id="D" name="triviaAnswerChoices9" value="">
+            <label for="D">D:</label>
+            <span id="question9answerD_display"></span> <br/>
+        </div><br/>
+
+        <input type="submit" onclick="checkPlayerAnswers()">
+    </form>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
