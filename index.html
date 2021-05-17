@@ -12,19 +12,19 @@
     <form id="triviaGameQuestions">
         <div id="question0">
             <span id="question0question_display"></span> <br/>
-            <input type="radio" id="A" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer('question0', 'question0answerA_display')">
+            <input type="radio" id="ans0A" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer(0, 'A')">
             <label for="A">A:</label>
             <span id="question0answerA_display" ></span> <br/>
 
-            <input type="radio" id="B" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer('question0', 'question0answerB_display')">
+            <input type="radio" id="ans0B" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer(0, 'B')">
             <label for="B">B:</label>
             <span id="question0answerB_display" ></span> <br/>
 
-            <input type="radio" id="C" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer('question0','question0answerC_display')">
+            <input type="radio" id="ans0C" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer(0,'C')">
             <label for="C">C:</label>
             <span id="question0answerC_display" ></span> <br/>
 
-            <input type="radio" id="D" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer('question0','question0answerD_display')">
+            <input type="radio" id="ans0D" name="triviaAnswerChoices0" value="" onclick="checkIndivAnswer(0,'D')">
             <label for="D">D:</label>
             <span id="question0answerD_display" ></span> <br/>
         </div><br/>
@@ -64,7 +64,7 @@
             <label for="D">D:</label>
             <span id="question2answerD_display"></span> <br/>
         </div><br/>
-        
+
         <div id="question3">
             <span id="question3question_display"></span> <br/>
             <input type="radio" id="A" name="triviaAnswerChoices3" value="">
@@ -194,7 +194,7 @@
 
         <input type="submit" onclick="checkPlayerAnswers()">
     </form>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="trivia.js"></script>
