@@ -140,11 +140,27 @@ function checkIndivAnswer(i, ans){
 
 
 function switchPlayers(){
- if(triviaGame.currentPlayer = triviaGame.player2) {
-
+ if(triviaGame.currentPlayer === triviaGame.player2) {
+    callWinner();
  } else{
     triviaGame.currentPlayer = triviaGame.player2;
     $('#currentPlayer').html(triviaGame.currentPlayer.name+", you're up!");
  }
 
+}
+
+function callWinner(){
+  var winner = "";
+ 
+  if(triviaGame.player1.score > triviaGame.player2.score){
+    winner = triviaGame.player1.name;
+  } else if (triviaGame.player1.score < triviaGame.player2.score){
+    winner = triviaGame.player2.name;
+  } else {
+    winner = "No one! You're both fired!";
+  }
+
+  $('#currentPlayer').html(triviaGame.player2.name+"'s score: "+triviaGame.player2.score+"<br/>"
+  +triviaGame.player1.name+"'s score: "+triviaGame.player1.score+"<br/>"+
+  "The winner is: "+winner);
 }
