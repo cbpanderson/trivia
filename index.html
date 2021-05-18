@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>trivia game!</h1>
-    <div id="currentPlayer">Player One, You're Up</div><br/>
+    <div id="currentPlayer"></div><br/>
     <form id="triviaGameQuestions">
         <div id="question0">
             <span id="question0question_display"></span> <br/>
@@ -192,7 +192,8 @@
             <span id="question9answerD_display"></span> <br/>
         </div><br/>
 
-        <input type="submit" onclick="checkPlayerAnswers()">
+        <!-- <input type="submit" id="switchPlayerButton" onclick="switchPlayers()"> -->
+        <button type="reset" id="switchPlayerButton" onclick="switchPlayers()">Finish</button>
     </form>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

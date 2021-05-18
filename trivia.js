@@ -3,13 +3,15 @@
   
   class Game {
     constructor(player1, player2) {
-      this.player1 = player1;
-      this.player2 = player2;
+      this.player1 = new Player(player1, 0, 0, 0);
+      this.player2 = new Player(player2, 0, 0, 0);
       this.questions = [];///
     }
 
     start(){
       this.currentPlayer = this.player1;
+      $('#currentPlayer').html(this.currentPlayer.name+", you're up!");
+
         var api_url = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple';
         var config = {
             params: {
@@ -48,6 +50,10 @@
         });
           
     }
+
+    addPoint(player){
+      
+    }
 }
 
   class Question {
@@ -82,7 +88,7 @@
   //easiest way to randomize is have a shuffle routine
 //get user names
 //ask what category and difficulty, pass params to Game
-var triviaGame = new Game('sally', 'bobby');
+var triviaGame = new Game('Sally', 'Bobby');
 // var questionSet;
 triviaGame.start()
   .then(() => {
@@ -114,6 +120,7 @@ triviaGame.start()
       // $("#question"+i+"answerD_display").html(triviaGame.incorrect_answers[i][2]);
 
     } 
+    //do I need a resolve here?
   })
   .catch(() => {});
 
@@ -121,11 +128,10 @@ triviaGame.start()
 function checkIndivAnswer(i, ans){
   var answerData = $(`#ans${i}${ans}`).val();///
   var question = triviaGame.questions[i];///
-
-  // var isCorrectResult = question.isCorrectAnswer(answerData);
   var isCorrectResult = question.isCorrectAnswer(answerData);
+
   if (isCorrectResult === 'yes'){
-    //current player ++;
+    triviaGame.currentPlayer.score++;//need to remove a point if first select correct and then change
     console.log("right answer");
   } else{
     console.log("Wrong");
@@ -133,15 +139,12 @@ function checkIndivAnswer(i, ans){
 }
 
 
-function checkPlayerAnswers(event){
-  event.preventDefault();
- //  document.querySelectorAll('#triviaGameQuestions input');
- //clear all
+function switchPlayers(){
+ if(triviaGame.currentPlayer = triviaGame.player2) {
 
- //switch players
- // triviaGame.currentPlayer = player2;
+ } else{
+    triviaGame.currentPlayer = triviaGame.player2;
+    $('#currentPlayer').html(triviaGame.currentPlayer.name+", you're up!");
+ }
+
 }
-
-// $(question1answerA_display).click(function(){
-
-// });
