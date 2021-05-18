@@ -5,6 +5,7 @@
     constructor(player1, player2) {
       this.player1 = player1;
       this.player2 = player2;
+      this.questions = [];///
     }
 
     start(){
@@ -19,25 +20,31 @@
           axios.get(api_url, config)
             .then((response) => {
               this.triviaData = response.data.results;
-              var questions = [];
-              var correct_answers = [];
-              var incorrect_answers = [];
 
-              this.triviaData.forEach(question => questions.push(question.question));
-              this.questions = questions;
+              this.triviaData.forEach((q) => {
+                this.questions.push(new Question(q.incorrect_answers, q.correct_answer, q.question));///
 
-              this.triviaData.forEach(question => correct_answers.push(question.correct_answer));
-              this.correct_answers = correct_answers;
 
-              this.triviaData.forEach(question => incorrect_answers.push(question.incorrect_answers));
-              this.incorrect_answers = incorrect_answers;
-              
-              resolve();
+              // var questions = [];
+              // var correct_answers = [];
+              // var incorrect_answers = [];
+
+              // this.triviaData.forEach(question => questions.push(question.question));
+              // this.questions = questions;
+
+              // this.triviaData.forEach(question => correct_answers.push(question.correct_answer));
+              // this.correct_answers = correct_answers;
+
+              // this.triviaData.forEach(question => incorrect_answers.push(question.incorrect_answers));
+              // this.incorrect_answers = incorrect_answers;
+              });
+                resolve();
             })
             .catch(function (error) {
               console.error(error);
               reject(error);
             });
+
         });
           
     }
@@ -83,28 +90,46 @@ triviaGame.start()
 
     //need to add logic to randomize answers
     for(i=0; i<triviaGame.questions.length; i++){
-      eval('var question'+ i + ' = new Question(triviaGame.incorrect_answers[i],triviaGame.correct_answers[i],triviaGame.questions[i])');
-      $("#question"+i+"question_display").html(triviaGame.questions[i]);
-      $("#question"+i+"answerA_display").html(triviaGame.correct_answers[i]);
-      $("#question"+i+"answerB_display").html(triviaGame.incorrect_answers[i][0]);
-      $("#question"+i+"answerC_display").html(triviaGame.incorrect_answers[i][1]);
-      $("#question"+i+"answerD_display").html(triviaGame.incorrect_answers[i][2]);
+      var q = triviaGame.questions[i];///
+
+      $(`#question${i}question_display`).html(q.question);///
+
+      $("#question"+i+"answerA_display").html(q.correctAns);///
+      $(`#ans${i}A`).val(q.correctAns);///
+      
+      $("#question"+i+"answerB_display").html(q.answers[0]);///
+      $(`#ans${i}B`).val(q.answers[0]);///
+
+      $("#question"+i+"answerC_display").html(q.answers[1]);///
+      $(`#ans${i}C`).val(q.answers[1]);///
+
+      $("#question"+i+"answerD_display").html(q.answers[2]);///
+      $(`#ans${i}D`).val(q.answers[2]);///
+
+      // new Question(triviaGame.incorrect_answers[i],triviaGame.correct_answers[i],triviaGame.questions[i])');
+      // $("#question"+i+"question_display").html(triviaGame.questions[i]);
+      // $("#question"+i+"answerA_display").html(triviaGame.correct_answers[i]);
+      // $("#question"+i+"answerB_display").html(triviaGame.incorrect_answers[i][0]);
+      // $("#question"+i+"answerC_display").html(triviaGame.incorrect_answers[i][1]);
+      // $("#question"+i+"answerD_display").html(triviaGame.incorrect_answers[i][2]);
 
     } 
   })
   .catch(() => {});
 
 
-function checkIndivAnswer(question, answer){
-  var answerData = $(answer).html;
-  console.log(question);
+function checkIndivAnswer(i, ans){
+  var answerData = $(`#ans${i}${ans}`).val();///
+  var question = triviaGame.questions[i];///
+
   // var isCorrectResult = question.isCorrectAnswer(answerData);
-  var isCorrectResult;
-  this.isCorrectAnswer = isCorrectAnswer(answerData);
-  isCorrectResult = this.isCorrectAnswer;
+  var isCorrectResult = question.isCorrectAnswer(answerData);
   if (isCorrectResult === 'yes'){
     //current player ++;
-  } 
+    console.log("right answer");
+  } else{
+    console.log("Wrong");
+  }
 }
 
 
